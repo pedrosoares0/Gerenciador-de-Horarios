@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão de Horários</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    
+    <div id="login-page">
+      <h1>Gestão de Horários</h1>
+      <div class="login-box">
+        <h2>Login</h2>
+        <input type="text" id="usuario" placeholder="Usuário">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="logar()">Entrar</button>
+        <div class="logo-senai">
+          <img src="logo-cimatec.png" alt="SENAI CIMATEC">
+        </div>
+      </div>
+    </div>
+
+
+    <div id="home-page" style="display: none;">
+      <header>
+        <h1>Gestão de Horários</h1>
+        <nav>
+          <ul>
+            <li>Professores</li>
+            <li>Coordenadores</li>
+            <li>Turmas</li>
+            <li>Calendário</li>
+            <li onclick="voltarLogin()">Sair</li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="professores">
+        <div class="botoes">
+          <button onclick="abrirCadastro()">Adicionar Professor</button>
+          <button onclick="abrirCadastroAula()">Adicionar Aula</button>
+        </div>
+
+        <div class="tabela">
+          <h3>Horários
+            <select id="selectProfessor" onchange="atualizarTabela()"></select>
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Dia</th>
+                <th>Data</th>
+                <th>Turma</th>
+                <th>Matéria</th>
+                <th>Horário</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+
+    <div id="add-professor-page" style="display: none;">
+      <h2>Adicionar Professor</h2>
+      <div class="login-box">
+        <input type="text" id="nomeProfessor" placeholder="Nome">
+        <input type="email" id="emailProfessor" placeholder="Email">
+        <button onclick="adicionarProfessor()">Adicionar</button>
+        <button onclick="voltarHome()">Cancelar</button>
+      </div>
+    </div>
+
+
+    <div id="add-aula-page" style="display: none;">
+      <h2>Adicionar Aula</h2>
+      <div class="login-box">
+        <input type="text" id="materia" placeholder="Matéria">
+        <input type="text" id="dia" placeholder="Dia da Semana (ex: Segunda)">
+        <input type="text" id="data" placeholder="Data (ex: 07/04)">
+        <input type="text" id="horario" placeholder="Horário (ex: 08:00 - 10:30)">
+        <select id="idTurma">
+          <option value="1">ADS - Noturno</option>
+          <option value="2">ADS - Vespertino</option>
+          <option value="3">REDES - Noturno</option>
+        </select>
+        <select id="idProfessorSelect"></select>
+        <button onclick="adicionarAula()">Salvar Aula</button>
+        <button onclick="voltarHome()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
